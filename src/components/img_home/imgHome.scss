@@ -1,0 +1,30 @@
+.img_home {
+  position: relative;
+  .img {
+    cursor: pointer;
+  }
+  .img_home-title {
+    position: absolute;
+    right: 100px;
+    top: 40%;
+
+    h1 {
+      text-align: center;
+      font-size: 80px;
+      font-weight: 600;
+      color: aliceblue;
+      font-family: fangsong;
+      padding-bottom: 20px;
+    }
+    h4,
+    p,
+    h3 {
+      font-size: 24px;
+      font-family: ui-serif;
+      padding-left: 20px;
+      padding-bottom: 10px;
+      color: rgb(125, 121, 117);
+      text-shadow: 3px 2px 3px#ccc;
+    }
+  }
+}

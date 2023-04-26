@@ -1,0 +1,33 @@
+.addresses_right {
+  margin-top: 200px !important;
+  margin-bottom: 50px !important;
+  padding-left: 50px !important;
+  border-left: 0.4px solid #ccc;
+  .addresses_right-name {
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 20px;
+  }
+}
+div#\:r0\: {
+  font-size: 50px;
+  font-family: ui-rounded;
+  text-shadow: -2px 3px 5px;
+}
+select {
+  padding: 7px 11px;
+  font-size: 16px;
+  line-height: 1.5;
+  border-radius: 8px;
+  width: 100%;
+}
+.col-md-4.col-ms-12.addresses_left {
+  margin-top: 130px;
+  padding-left: 100px;
+}
+.delete {
+  cursor: pointer;
+  color: black;
+}
+.delete:hover {
+  color: red;
+}

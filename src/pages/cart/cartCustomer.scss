@@ -1,0 +1,27 @@
+.header {
+  text-align: center;
+  font-size: 20px;
+  color: rgb(169, 168, 168);
+  padding: 20px 0;
+  margin-bottom: 30px;
+  border-bottom: 1px solid rgb(169, 168, 168);
+  border-top: 1px solid rgb(169, 168, 168);
+  p {
+    margin: 0;
+  }
+}
+.cart_customer-body {
+  margin: 10px 0;
+  .cart_customer-item {
+    display: flex;
+    img {
+      padding-right: 20px;
+    }
+    .cart_customer-title {
+      padding: 70px 0;
+    }
+  }
+}
+.footer_cart {
+  padding-bottom: 30px;
+}

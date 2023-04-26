@@ -1,0 +1,209 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  padding: 0 !important;
+  z-index: 100;
+  .navbar-menu {
+    width: 100%;
+    height: 150px;
+    align-items: center;
+    background-image: linear-gradient(
+      to bottom,
+      black,
+      rgba(221, 221, 221, 0.918)
+    );
+    margin: 0;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    .logo-item {
+      text-align: center;
+      .logo {
+        font-size: 50px;
+        font-weight: 800;
+        color: black;
+        font-family: fantasy;
+        text-decoration: none;
+      }
+    }
+    .main-menu {
+      text-align: -webkit-match-parent;
+      display: flex;
+      padding: 0;
+      padding-bottom: 5px;
+      .menu-item {
+        padding: 20px 10px;
+        font-size: 16px;
+        text-align: center;
+        .menu-item-a {
+          color: #979dab;
+          font-weight: 500;
+        }
+      }
+      .menu-item > li {
+        position: relative;
+      }
+      .menu-item:hover > .sub-menu {
+        display: block;
+      }
+      .sub-menu {
+        position: absolute;
+        background-image: linear-gradient(to bottom, black, white);
+        border-radius: 10px;
+        top: 70px;
+        width: 200px;
+        padding: 20px;
+        text-align: left;
+        display: none;
+        li {
+          padding: 20px;
+          width: 180px;
+          border-bottom: 1px solid rgb(227, 205, 205);
+        }
+        li:nth-child(1) {
+          padding-top: 0;
+        }
+
+        li:hover > .sub-menu__item {
+          color: black;
+          font-size: 16px;
+        }
+        .sub-menu__item {
+          position: relative;
+          height: 50px;
+          font-size: 16px;
+          font-weight: 600;
+          color: #979dab;
+        }
+        .chevron-right {
+          font-size: 12px;
+        }
+        // menu cấp 3----------
+        li:hover > .sub-menu-4,
+        li:hover > .sub-menu-3 {
+          display: block;
+        }
+        ul.sub-menu-3 {
+          position: absolute;
+          top: 10px;
+          left: 190px;
+          width: 200px;
+          padding-left: 10px;
+          background-image: linear-gradient(to bottom, black, white);
+          border-radius: 10px;
+          display: none;
+        }
+        ul.sub-menu-3 > li {
+          cursor: pointer;
+          padding: 15px 0;
+          width: 100%;
+          text-align: center;
+        }
+        ul.sub-menu-3 > li > a {
+          color: #979dab;
+          padding: 10px;
+          font-size: 20px;
+        }
+        ul.sub-menu-3 > li:hover > a {
+          color: black;
+        }
+        ul.sub-menu-4 {
+          position: absolute;
+          top: 90px;
+          left: 190px;
+          width: 200px;
+          padding-left: 10px;
+          background-image: linear-gradient(to bottom, black, white);
+          border-radius: 10px;
+          display: none;
+        }
+        ul.sub-menu-4 > li {
+          cursor: pointer;
+          padding: 15px 0;
+          width: 100%;
+          text-align: center;
+        }
+        ul.sub-menu-4 > li > a {
+          color: #979dab;
+          padding: 10px;
+          font-size: 20px;
+        }
+        ul.sub-menu-4 > li:hover > a {
+          color: black;
+        }
+      }
+    }
+    .menu-item:hover {
+      border-bottom: 4px solid rgb(14, 13, 13);
+      cursor: pointer;
+    }
+    .menu-item:hover > .menu-item-a {
+      font-size: 18px;
+      font-weight: 600;
+      color: black;
+    }
+  }
+  span.anticon.anticon-search {
+    font-size: 24px;
+    color: cornsilk;
+  }
+  input.ant-input.css-dev-only-do-not-override-mxhywb {
+    border: none;
+  }
+  button.ant-btn.css-dev-only-do-not-override-mxhywb.ant-btn-primary.ant-input-search-button {
+    background-color: dimgray;
+  }
+  .search {
+    padding-right: 10px;
+  }
+  .menu {
+    display: flex;
+    justify-content: space-between;
+
+    .menu-right {
+      display: flex;
+      padding: 20px 0;
+    }
+  }
+  :where(.css-dev-only-do-not-override-mxhywb).ant-btn-default:not(
+      :disabled
+    ):hover {
+    color: black;
+    border-color: black;
+  }
+  a.btn.btn-outline-dark {
+    display: flex;
+    align-items: center;
+    height: 33px;
+    color: black;
+    background-color: white;
+    border-radius: 7px;
+    border: none;
+    margin-left: 6px;
+  }
+  a.btn.btn-outline-dark:hover {
+    color: black;
+    border: 1px solid black;
+    background-color: transparent;
+  }
+}
+.cart {
+  position: relative;
+
+  .total-cart {
+    position: absolute;
+    top: -1px;
+    right: 10px;
+    font-size: 10px;
+    font-weight: 500;
+    width: 15px;
+    height: 15px;
+    text-align: center;
+    background-color: rgb(54, 56, 58);
+    border-radius: 50%;
+    border: 1px solid white;
+    color: rgb(60, 254, 1);
+  }
+}

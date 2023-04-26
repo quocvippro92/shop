@@ -1,0 +1,84 @@
+.address-information {
+  .logoName {
+    font-size: 30px;
+    font-weight: 400;
+    display: block;
+    width: 100%;
+    padding: 50px 0 20px 0;
+    color: black;
+    cursor: pointer;
+  }
+  .billing-information {
+    color: #333333;
+  }
+  .account {
+    display: flex;
+
+    .icone {
+      font-size: 30px;
+      padding: 20px 0 0;
+    }
+    .email {
+      padding: 10px;
+      p {
+        margin: 0;
+      }
+      .logout:hover {
+        color: red;
+      }
+      .logout {
+        cursor: pointer;
+      }
+    }
+  }
+}
+.check-cart {
+  .VND {
+    color: rgb(240, 132, 132);
+    font-size: 10px;
+  }
+  padding-top: 50px;
+  .check-cart-item {
+    .image {
+      position: relative;
+      .quntity {
+        width: 25px;
+        height: 25px;
+        background-color: rgb(150, 150, 150);
+        border-radius: 50%;
+        text-align: center;
+        color: rgb(109, 249, 74);
+        font-weight: 600;
+        position: absolute;
+        top: -10px;
+        left: 85px;
+      }
+    }
+
+    display: flex;
+    p {
+      padding: 0;
+      margin: 0;
+      font-size: 12px;
+      padding-left: 10px;
+    }
+  }
+}
+.all-money {
+  display: flex;
+  justify-content: space-between;
+}
+.temp-number,
+.all-price {
+  padding-right: 9%;
+}
+.tam-tinh,
+.tam-tong {
+  font-weight: 700;
+}
+.ant-space.css-dev-only-do-not-override-mxhywb.ant-space-vertical {
+  margin-bottom: 30px;
+}
+.col-md-6.col-ms-12.check-cart {
+  margin-bottom: 50px;
+}

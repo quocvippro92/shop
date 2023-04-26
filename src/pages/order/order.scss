@@ -1,0 +1,54 @@
+.container-fluid {
+  .addresses_left-header {
+    text-align: left;
+  }
+  h1 {
+    text-transform: uppercase;
+  }
+  h3 {
+    text-align: center;
+    text-transform: uppercase;
+  }
+  ul.addresses_left-main {
+    font-size: 20px;
+    li {
+      padding: 10px 0;
+      a {
+        color: black;
+
+        &:hover {
+          color: rgb(222, 164, 88);
+          text-transform: uppercase;
+        }
+      }
+    }
+  }
+  .product_item {
+    display: flex;
+
+    .product_order-img {
+      width: 200px;
+      img {
+        width: 100%;
+        margin-top: 10px;
+      }
+    }
+    .product_order-name {
+      padding: 10px 40px;
+      margin: auto;
+      p {
+        margin: 0;
+        font-size: 17px;
+        font-weight: 500;
+        color: black;
+        overflow: hidden;
+      }
+    }
+    .check {
+      text-align: center;
+      margin: auto;
+      padding: 10px;
+      font-size: 20px;
+    }
+  }
+}

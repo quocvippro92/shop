@@ -1,0 +1,35 @@
+.login {
+  background-image: linear-gradient(
+    to bottom,
+    rgb(122, 118, 118),
+    rgba(221, 221, 221, 0.918)
+  );
+  padding: 50px;
+  .header_login {
+    display: block;
+    text-align: center;
+    padding: 30px 0;
+    font-size: 26px;
+    font-weight: 800;
+    font-family: Georgia, "Times New Roman", Times, serif;
+  }
+  .header-main_login {
+    display: block;
+    padding-left: 20px;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    border-bottom: 0.5px solid #ccc;
+    font-size: 24px;
+    font-weight: 600;
+    color: red;
+  }
+  .form_login {
+    width: 500px;
+    height: 500px;
+    padding: 10px;
+    display: block;
+    margin: auto;
+    border-radius: 10px;
+    background-color: white;
+  }
+}
