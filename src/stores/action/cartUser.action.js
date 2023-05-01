@@ -6,10 +6,10 @@ export const createCart = createAsyncThunk(
   "cartUser/createCart",
   async (payload, thunkApi) => {
     const data = payload;
-    console.log(data);
+    console.log("ádsadsa");
     // const CustomerCart = await cartApi.getCustomerCart(data.customer_id);
     // const listCustomerProduct = CustomerCart.data?.map((product) => product.id);
-    let response;
+    // let response;
     // if (listCustomerProduct.includes(data.id)) {
     //   notification.error({
     //     message:
@@ -23,9 +23,10 @@ export const createCart = createAsyncThunk(
     // cart.color = cart.color + "/" + data.color;
     // response = await cartApi.updateCart(cart.id, cart);
     // } else {
-    response = await cartApi.createCustomerCart(data);
+    const response = await cartApi.createCustomerCart(data);
 
     // }
+
     return response.data;
   }
 );

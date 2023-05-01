@@ -1,0 +1,60 @@
+.saleProductSold-right_item {
+  margin-bottom: 50px;
+}
+.saleProductSold-right_item:hover {
+  .saleProductSold-name,
+  .saleProductSold-price {
+    transform: scale(1.05);
+  }
+}
+.saleProductSold-img {
+  margin-right: 5px;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+.saleProductSold-img:hover {
+  transform: scale(1.05);
+  z-index: 10;
+  .saleProductSold-sold {
+    margin-top: 15px;
+  }
+}
+.saleProductSold-name {
+  cursor: pointer;
+  font-size: 24px;
+  font-weight: 600;
+  color: rgb(102, 102, 67);
+  text-align: center;
+  padding-top: 10px;
+}
+.saleProductSold-sold {
+  position: absolute;
+  top: 3px;
+  right: 0px;
+  width: 150px;
+  color: red;
+  height: 40px;
+  padding-left: 10px;
+  padding-right: 10px;
+  background-color: white;
+  border-radius: 10px 0px 1px 0;
+  font-size: 24px;
+}
+.saleProductSold-price {
+  font-size: 30px;
+  font-weight: 700;
+  text-align: center;
+  padding-top: 10px;
+}
+.strikethrough {
+  text-decoration-line: line-through;
+  color: red;
+  font-size: 20px;
+  font-weight: 300;
+  padding-right: 20px;
+}
+.sale_price {
+  font-weight: 700;
+  font-size: 22px;
+}

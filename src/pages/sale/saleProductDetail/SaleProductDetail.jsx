@@ -1,32 +1,36 @@
+import "./saleProductDetail.scss";
 import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useNavigate, useParams } from "react-router-dom";
-import Slider from "react-slick";
+import { useDispatch, useSelector } from "react-redux";
 import {
-  fetchAllProducts,
-  fetchProductsDetail,
-} from "../../../stores/action/product.action";
-import { sliderProduct, sliderProductItem } from "../ProductConstant";
-import "./product.scss";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import ReactImageMagnify from "react-image-magnify";
-import { Button, Modal, notification, Radio } from "antd";
-import { useRef } from "react";
+  fetchAllSaleProducts,
+  fetchSaleProductDetail,
+} from "../../../stores/action/saleProduct.action";
 import {
   createCart,
   deleteCart,
   getCustomerCart,
   updateCart,
 } from "../../../stores/action/cartUser.action";
+import { Button, Modal, notification } from "antd";
+import Slider from "react-slick";
 import { ROUTE } from "../../../constants/routes.const";
-const Product = () => {
+import ReactImageMagnify from "react-image-magnify";
+import {
+  sliderProduct,
+  sliderProductItem,
+} from "../../allProduct/ProductConstant";
+
+const SaleProductDetail = () => {
   const id = useParams();
   const dispatch = useDispatch();
-  const product = useSelector((state) => state.productReducer.product);
+  const product = useSelector((state) => state.saleProductReducer.saleProduct);
+  console.log(product);
   const user_info = useSelector((state) => state.authReducer.user);
   const cart = useSelector((state) => state.cartReducer.listCartCustomer);
-  const allProduct = useSelector((state) => state.productReducer.allProduct);
+  const allProduct = useSelector(
+    (state) => state.saleProductReducer.allSaleProduct
+  );
   const [img, setImg] = useState("");
   const [size, setSize] = useState("size4");
   const navigate = useNavigate();
@@ -35,24 +39,23 @@ const Product = () => {
   const [confirmLoadingAddcart, setConfirmLoadingAddcart] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   useEffect(() => {
-    dispatch(fetchProductsDetail(id));
+    dispatch(fetchSaleProductDetail(id));
   }, [id]);
   useEffect(() => {
     if (user_info === null) {
-      dispatch(fetchAllProducts());
+      dispatch(fetchAllSaleProducts());
     } else {
       dispatch(getCustomerCart(user_info.user.id));
-      dispatch(fetchAllProducts());
+      dispatch(fetchAllSaleProducts());
     }
   }, []);
   useEffect(() => {
     setImg(product.image);
   }, [product]);
-
+  console.log(allProduct);
   const listSimilarProduct = [...allProduct]
     .filter((item, index) => item.category === product.category)
     .splice(0, 12);
-
   const handleChangeImg = (src) => {
     setImg(src.image_url);
   };
@@ -82,7 +85,7 @@ const Product = () => {
           image: product.image,
           size: size,
           color: product.color,
-          price: product.price,
+          price: product.price - (product.price * product.sale) / 100,
           trademark: product.trademark,
           quantity: 1,
         })
@@ -99,7 +102,7 @@ const Product = () => {
         image: product.image,
         size: size,
         color: product.color,
-        price: product.price,
+        price: product.price - (product.price * product.sale) / 100,
         trademark: product.trademark,
         quantity: 1,
       })
@@ -201,9 +204,17 @@ const Product = () => {
               <div className="product-right_id">
                 Mã Sản Phẩm : <strong>{product.id}</strong>
               </div>
+              <div className="sale">
+                Sale : <strong>{product.sale}%</strong>
+              </div>
               <div className="product-right_price">
-                Giá : {product.price}
-                <strong className="VND"> VNĐ</strong>
+                Giá :{" "}
+                <span className="strikethrough">
+                  {product.price} <strong className="VND">VNĐ</strong>
+                </span>
+                <span className="sale_price">
+                  {product.price - (product.price * product.sale) / 100} VNĐ
+                </span>
               </div>
               <div className="product-right_size">
                 <strong> Kích thước</strong>
@@ -348,8 +359,8 @@ const Product = () => {
                     </div>
                   </div>
                   <div className="row cart ">
-                    {cart?.map((item) => (
-                      <>
+                    {cart?.map((item, index) => (
+                      <div key={index}>
                         <div className="col-md-6 col-ms-12 cart_img ">
                           <img src={item.image} alt={item.name} width="100px" />
                           <div className="cart_img-name">
@@ -394,7 +405,7 @@ const Product = () => {
                             <i className="fa fa-trash-o" aria-hidden="true"></i>
                           </strong>
                         </div>
-                      </>
+                      </div>
                     ))}
 
                     <div className="footer_cart">
@@ -432,7 +443,7 @@ const Product = () => {
               <Slider {...sliderProduct}>
                 {listSimilarProduct?.map((item, index) => (
                   <div className="  similar_product-item">
-                    <NavLink to={`/product/${item.id}`} key={index}>
+                    <NavLink to={`/sale_products/${item.id}`} key={index}>
                       <img
                         src={item.image}
                         alt={product.name}
@@ -456,4 +467,5 @@ const Product = () => {
     )
   );
 };
-export default Product;
+
+export default SaleProductDetail;

@@ -8,4 +8,6 @@ export const ROUTE = {
   ORDER: "/order",
   CART: "/cart",
   CHECKOUTS: "/checkouts",
+  SALE: "/saleProduct",
+  SALESANPHAM: "sale_products/:id",
 };

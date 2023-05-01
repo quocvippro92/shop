@@ -46,13 +46,6 @@ const ImgHome = () => {
           height="700px"
           className="img"
         />
-
-        <div
-          className="img_home-title"
-          data-aos="fade-up"
-          data-aos-easing="ease-in-sine"
-          data-aos-duration="2000"
-        ></div>
       </div>
     </>
   );

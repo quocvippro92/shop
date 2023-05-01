@@ -16,6 +16,7 @@ const productInitialState = {
   },
   category: "",
   textSearch: "",
+  sale: "",
   fetchingAllProduct: false,
   fetchingProductDetail: false,
 };

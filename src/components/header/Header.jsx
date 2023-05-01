@@ -45,7 +45,7 @@ const Header = () => {
           },
           {
             key: "2",
-            label: <NavLink to="/">Lịch Sử Đơn Hàng</NavLink>,
+            label: <NavLink to="/order">Lịch Sử Đơn Hàng</NavLink>,
           },
           {
             key: "3",
@@ -140,9 +140,9 @@ const Header = () => {
                   <ul className="sub-menu">
                     <li>
                       <NavLink
-                        to="/products"
                         className="sub-menu__item"
-                        onClick={() => handleChangeCategory("Đầm")}
+                        to="/products"
+                        onClick={() => handleSearch("Đầm")}
                       >
                         Đầm{""}
                         <i
@@ -160,7 +160,12 @@ const Header = () => {
                           </NavLink>
                         </li>
                         <li>
-                          <NavLink>Đầm dáng A </NavLink>
+                          <NavLink
+                            to="/products"
+                            onClick={() => handleChangeCategory("Đầm-dáng-A")}
+                          >
+                            Đầm dáng A{" "}
+                          </NavLink>
                         </li>
                         <li>
                           <NavLink>Đầm ôm </NavLink>
@@ -168,7 +173,11 @@ const Header = () => {
                       </ul>
                     </li>
                     <li>
-                      <NavLink className="sub-menu__item">
+                      <NavLink
+                        className="sub-menu__item"
+                        to="/products"
+                        onClick={() => handleSearch("sơ mi")}
+                      >
                         Áo Sơ Mi{" "}
                         <i
                           className="fa fa-chevron-right chevron-right"
@@ -177,13 +186,27 @@ const Header = () => {
                       </NavLink>
                       <ul className="sub-menu-4">
                         <li>
-                          <NavLink>Đầm suông </NavLink>
+                          <NavLink
+                            to="/products"
+                            onClick={() =>
+                              handleChangeCategory("Sơ-mi-dài-tay")
+                            }
+                          >
+                            Dài tay{" "}
+                          </NavLink>
                         </li>
                         <li>
-                          <NavLink>Đầm dáng A </NavLink>
+                          <NavLink
+                            to="/products"
+                            onClick={() =>
+                              handleChangeCategory("Sơ-mi-ngắn-tay")
+                            }
+                          >
+                            Ngắn tay{" "}
+                          </NavLink>
                         </li>
                         <li>
-                          <NavLink>Đầm ôm </NavLink>
+                          <NavLink>Tay lỡ </NavLink>
                         </li>
                       </ul>
                     </li>
@@ -197,7 +220,10 @@ const Header = () => {
                       </NavLink>
                     </li>
                     <li>
-                      <NavLink className="sub-menu__item">
+                      <NavLink
+                        className="sub-menu__item"
+                        onClick={() => handleChangeCategory("Quần")}
+                      >
                         Quần{" "}
                         <i
                           className="fa fa-chevron-right chevron-right"
@@ -238,7 +264,7 @@ const Header = () => {
                   </NavLink>
                 </li>
                 <li className="menu-item">
-                  <NavLink className="menu-item-a">
+                  <NavLink to="/saleProduct" className="menu-item-a">
                     SALE{" "}
                     <i
                       className="fa fa-chevron-circle-down"

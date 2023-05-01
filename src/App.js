@@ -12,6 +12,8 @@ import Home from "./pages/home/Home";
 import Login from "./pages/login/Login";
 import Order from "./pages/order/Order";
 import Register from "./pages/register/Register";
+import SaleProductDetail from "./pages/sale/saleProductDetail/SaleProductDetail";
+import SaleProducts from "./pages/sale/SaleProducts";
 
 function App() {
   const user_login = useSelector((state) => state.authReducer.user);
@@ -26,6 +28,8 @@ function App() {
           />
           <Route path={ROUTE.REGISTER} element={<Register />} />
           <Route path={ROUTE.SANPHAM} element={<Product />} />
+          <Route path={ROUTE.SALE} element={<SaleProducts />} />
+          <Route path={ROUTE.SALESANPHAM} element={<SaleProductDetail />} />
           <Route path={ROUTE.ALLSANPHAM} element={<Products />} />
           <Route path={ROUTE.ADDRESSES} element={<Addresses />} />
           <Route path={ROUTE.ORDER} element={<Order />} />

@@ -7,12 +7,8 @@ import { ROUTE } from "../../constants/routes.const";
 import {
   fetchDistricts,
   fetchProvinces,
-  getCustomerAddress,
 } from "../../stores/action/address.action";
-import {
-  deleteCart,
-  getCustomerCart,
-} from "../../stores/action/cartUser.action";
+import { deleteCart } from "../../stores/action/cartUser.action";
 import { createOrderCustomer } from "../../stores/action/orderCustomer.action";
 import "./checkOuts.scss";
 const CheckOuts = () => {
@@ -28,14 +24,13 @@ const CheckOuts = () => {
   const customerAddress = useSelector(
     (state) => state.addressReducer.customerAddress
   );
+
   const dispatch = useDispatch();
   const sumPrice = listCart.reduce(
     (total, currentValue) => total + currentValue.quantity * currentValue.price,
     0
   );
   useEffect(() => {
-    dispatch(getCustomerCart(user_info.user.id));
-    dispatch(getCustomerAddress(user_info.user.id));
     dispatch(fetchProvinces());
   }, []);
   const test = (e, type) => {
@@ -56,7 +51,6 @@ const CheckOuts = () => {
       size: product.size,
       color: product.color,
     }));
-    console.log(listProductCustomer);
     const customerOrderInformation = {
       email: user_info.user.email,
       name: values.hoten,
