@@ -252,15 +252,12 @@ const Header = () => {
                   </ul>
                 </li>
                 <li className="menu-item">
-                  <NavLink className="menu-item-a">SẢN PHẨM MỚI </NavLink>
-                </li>
-                <li className="menu-item">
-                  <NavLink className="menu-item-a">
-                    BỘ SIÊU TẬP{" "}
-                    <i
-                      className="fa fa-chevron-circle-down"
-                      aria-hidden="true"
-                    ></i>
+                  <NavLink
+                    to="/products"
+                    onClick={() => handleChangeCategory("Sản-phẩm-mới")}
+                    className="menu-item-a"
+                  >
+                    SẢN PHẨM MỚI{" "}
                   </NavLink>
                 </li>
                 <li className="menu-item">
@@ -272,6 +269,16 @@ const Header = () => {
                     ></i>
                   </NavLink>
                 </li>
+                <li className="menu-item">
+                  <NavLink className="menu-item-a">
+                    BỘ SIÊU TẬP{" "}
+                    <i
+                      className="fa fa-chevron-circle-down"
+                      aria-hidden="true"
+                    ></i>
+                  </NavLink>
+                </li>
+
                 <li className="menu-item">
                   <NavLink className="menu-item-a">SẢN PHẨM NHẬP KHẨU </NavLink>
                 </li>
