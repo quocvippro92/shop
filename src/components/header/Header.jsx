@@ -18,7 +18,9 @@ const Header = () => {
   const { Search } = Input;
   const user_info = useSelector((state) => state.authReducer.user);
   const totalCart = useSelector((state) => state.cartReducer.listCartCustomer);
+
   const [valueSearch, setValueSearch] = useState("");
+  const [check, setCheck] = useState(false);
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -98,6 +100,9 @@ const Header = () => {
     dispatch(changeTextSearch(""));
     dispatch(fetchProductList({ page: 1, limit: 9 }));
   };
+  const handleClickMenuBar = () => {
+    setCheck(!check);
+  };
   return (
     <>
       <div
@@ -106,9 +111,9 @@ const Header = () => {
         data-aos-easing="ease-in-sine"
         data-aos-duration="1000"
       >
-        <div className="row navbar-menu">
+        <div className=" navbar-menu">
           <div
-            className="col-md-2 logo-item"
+            className=" logo-item"
             data-aos="fade-right"
             data-aos-easing="ease-in-sine"
             data-aos-duration="2000"
@@ -117,10 +122,14 @@ const Header = () => {
               QE-SHOP
             </NavLink>
           </div>
-          <div className="col-md-10">
+          <div>
             <div className="menu">
               <ul
-                className="main-menu"
+                className={
+                  check === true
+                    ? "main-menu aos-init aos-animate open"
+                    : "main-menu aos-init aos-animate"
+                }
                 data-aos="fade-up"
                 data-aos-easing="ease-in-sine"
                 data-aos-duration="2000"
@@ -298,32 +307,38 @@ const Header = () => {
                   value={valueSearch}
                   onChange={(e) => setValueSearch(e.target.value)}
                 />
-                <Dropdown
-                  menu={{
-                    items,
-                  }}
-                  placement="bottomLeft"
-                  arrow
-                >
-                  {user_info !== null ? (
-                    <Button>
-                      <i className="fa fa-user-plus me-1"></i>
-                      {user_info.user.email}
-                    </Button>
-                  ) : (
-                    <Button>
-                      <i className="fa fa-user-plus me-1"></i>
-                      Tài Khoản
-                    </Button>
-                  )}
-                </Dropdown>
+                <div className="account">
+                  <Dropdown
+                    menu={{
+                      items,
+                    }}
+                    placement="bottomLeft"
+                    arrow
+                  >
+                    {user_info !== null ? (
+                      <Button>
+                        <i className="fa fa-user-plus me-1"></i>
+                        {user_info.user.email}
+                      </Button>
+                    ) : (
+                      <Button>
+                        <i className="fa fa-user-plus me-1"></i>
+                        Tài Khoản
+                      </Button>
+                    )}
+                  </Dropdown>
 
-                <NavLink to="/cart" className="btn btn-outline-dark cart ">
-                  Cart<i className="fa fa-shopping-cart me-1"></i>
-                  <div className="total-cart">
-                    {user_info !== null ? sumCart : 0}
+                  <NavLink to="/cart" className="btn btn-outline-dark cart ">
+                    Cart<i className="fa fa-shopping-cart me-1"></i>
+                    <div className="total-cart">
+                      {user_info !== null ? sumCart : 0}
+                    </div>
+                  </NavLink>
+
+                  <div className="fa-bar" onClick={() => handleClickMenuBar()}>
+                    <i class="fa fa-bars" aria-hidden="true"></i>
                   </div>
-                </NavLink>
+                </div>
               </div>
             </div>
           </div>

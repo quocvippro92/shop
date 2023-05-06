@@ -14,6 +14,7 @@ export const createOrderCustomer = createAsyncThunk(
       style: { border: "2px solid #71be34" },
       duration: 3,
     });
+    console.log(response.data);
     return response.data;
   }
 );

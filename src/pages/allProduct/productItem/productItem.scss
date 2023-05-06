@@ -39,6 +39,20 @@
       font-weight: 600;
     }
   }
+  .sale_productSold-sold {
+    position: absolute;
+    top: 10px;
+    height: 40px;
+    padding-left: 10px;
+    padding-right: 10px;
+    color: red;
+    background-color: rgb(138, 141, 139);
+    border-radius: 0 10px 1px 0;
+    font-size: 24px;
+    strong {
+      color: black;
+    }
+  }
   .productSold-name {
     cursor: pointer;
     font-size: 24px;
@@ -63,4 +77,26 @@
     font-size: 20px;
     color: rgb(239, 136, 136) !important;
   }
+}
+@media screen and (max-width: 992px) {
+  .container-fluid.product__item-lider {
+    display: none;
+  }
+  .mobile {
+    display: block !important;
+  }
+}
+.mobile {
+  display: none;
+}
+@media screen and (max-width: 750px) {
+  .container-fluid.product__item-lider {
+    display: none;
+  }
+  .mobile {
+    display: block !important;
+  }
+}
+.mobile {
+  display: none;
 }

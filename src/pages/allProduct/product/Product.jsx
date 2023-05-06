@@ -202,7 +202,7 @@ const Product = () => {
                 Mã Sản Phẩm : <strong>{product.id}</strong>
               </div>
               <div className="product-right_price">
-                Giá : {product.price}
+                Giá : {new Intl.NumberFormat().format(product.price)}
                 <strong className="VND"> VNĐ</strong>
               </div>
               <div className="product-right_size">
@@ -443,7 +443,8 @@ const Product = () => {
                         {item.name.substring(0, 20)}...
                       </div>
                       <div className="productSimilar-price">
-                        {item.price} <strong className="VND">VNĐ</strong>
+                        {new Intl.NumberFormat().format(item.price)}{" "}
+                        <strong className="VND">VNĐ</strong>
                       </div>
                     </NavLink>
                   </div>

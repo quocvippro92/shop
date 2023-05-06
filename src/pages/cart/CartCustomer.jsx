@@ -97,7 +97,12 @@ const CartCustomer = () => {
               </button>
             </div>
             <div className="col-md-2 col-ms-12 cart_name ">
-              <strong>{item && item.quantity * item.price}đ</strong>{" "}
+              <strong>
+                {new Intl.NumberFormat().format(
+                  item && item.quantity * item.price
+                )}{" "}
+                VNĐ
+              </strong>{" "}
               <strong onClick={() => handleDelete(item)}>
                 <i className="fa fa-trash-o" aria-hidden="true"></i>
               </strong>

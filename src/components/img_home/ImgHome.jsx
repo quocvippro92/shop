@@ -12,15 +12,9 @@ const ImgHome = () => {
         data-aos-easing="ease-in-sine"
         data-aos-duration="2000"
       >
-        <img
-          src="img_home.jpg"
-          alt=""
-          width="100%"
-          height="700px"
-          className="img"
-        />
+        <img src="img_home.jpg" alt="" width="100%" className="img" />
 
-        <div
+        {/* <div
           className="img_home-title"
           data-aos="fade-up"
           data-aos-easing="ease-in-sine"
@@ -30,7 +24,7 @@ const ImgHome = () => {
           <h3>Mặc hàng luôn đa dạng và uy tín luôn hàng đầu</h3>
           <h4>Mặc hàng QE_SHOP cho ra toàn là dẫn đầu xu hướng</h4>
           <p>QE_SHOP----Sự lựa chọn hàng đầu</p>
-        </div>
+        </div> */}
       </div>
       <ProductItem />
       <div

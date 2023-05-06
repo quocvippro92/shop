@@ -83,3 +83,11 @@
 li.ant-pagination-item {
   font-size: 30px;
 }
+@media screen and (max-width: 992px) {
+  .products .products-left {
+    padding: 10px;
+  }
+  .products-left_ul {
+    padding-left: 10px !important;
+  }
+}

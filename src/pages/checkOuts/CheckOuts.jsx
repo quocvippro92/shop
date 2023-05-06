@@ -24,7 +24,7 @@ const CheckOuts = () => {
   const customerAddress = useSelector(
     (state) => state.addressReducer.customerAddress
   );
-
+  console.log(listCart);
   const dispatch = useDispatch();
   const sumPrice = listCart.reduce(
     (total, currentValue) => total + currentValue.quantity * currentValue.price,
@@ -40,13 +40,14 @@ const CheckOuts = () => {
     });
   };
   const onFinish = (values) => {
-    const listProductCustomer = listCart.map((product, index) => ({
-      product_id: product.product_id,
+    const listProductCustomer = listCart.map((product) => ({
+      product_id: product.id,
       customer_id: product.customer_id,
       price: product.price,
       quantity: product.quantity,
       category: product.category,
-      title: product.title,
+      title: product.name,
+      trademark: product.trademark,
       image: product.image,
       size: product.size,
       color: product.color,
@@ -56,6 +57,7 @@ const CheckOuts = () => {
       name: values.hoten,
       phone: values.phone,
       address: `${values.address}/${values.district}/${values.province}`,
+      totalOrderProduct: sumPrice + cod,
       product: listProductCustomer,
       totalPrice: sumPrice + cod,
     };
@@ -94,6 +96,64 @@ const CheckOuts = () => {
     <>
       <div className="container">
         <div className="row">
+          <div className="col-md-6 col-ms-12 check-cart">
+            {listCart?.map((item, index) => (
+              <div className="row check-cart-body" key={index}>
+                <div className="col-md-8 col-ms-12 check-cart-item ">
+                  <div className="image">
+                    <img
+                      src={item.image}
+                      alt={item.name}
+                      width="100px"
+                      height={100}
+                    />
+                    <div className="quntity">{item && item.quantity}</div>
+                  </div>
+
+                  <div className="check-cart-title">
+                    <p>
+                      <strong>{item && item.name}</strong>
+                    </p>
+                    <p>
+                      Phiên Bản : <strong>{item && item.size}</strong>/
+                    </p>
+                    <p>
+                      Màu : <strong>{item && item.color}</strong>
+                    </p>
+                    <p>
+                      thương hiêu : <strong>{item && item.trademark}</strong>
+                    </p>
+                  </div>
+                </div>
+                <div className="col-md-4 col-ms-12 cart_name ">
+                  {new Intl.NumberFormat().format(
+                    item && item.price * item.quantity
+                  )}
+                  <strong className="VND"> VNĐ</strong>
+                </div>
+              </div>
+            ))}
+            <Radio.Group onChange={handleCheckInput} value={cod}>
+              <Space direction="vertical">
+                <Radio value={20000}>Vận chuyển chậm COD: 20,000 VND</Radio>
+                <Radio value={30000}>Vận chuyển nhanh COD: 30,000 VND</Radio>
+              </Space>
+            </Radio.Group>
+            <div className="all-money">
+              <div className="tam-tinh">Tạm Tính :</div>
+              <div className="temp-number">
+                {new Intl.NumberFormat().format(sumPrice + cod)}{" "}
+                <strong className="VND"> VNĐ</strong>{" "}
+              </div>
+            </div>
+            <div className="all-money ">
+              <div className="tam-tong">Tổng Tiền :</div>
+              <div className="all-price">
+                {new Intl.NumberFormat().format(sumPrice + cod)}{" "}
+                <strong className="VND"> VNĐ</strong>{" "}
+              </div>
+            </div>
+          </div>
           <div className="col-md-6 col-ms-12 address-information">
             <NavLink to="/" className="logoName">
               QE-SHOP
@@ -211,60 +271,6 @@ const CheckOuts = () => {
                 </Form.Item>
               </div>
             </Form>
-          </div>
-          <div className="col-md-6 col-ms-12 check-cart">
-            {listCart?.map((item, index) => (
-              <div className="row check-cart-body" key={index}>
-                <div className="col-md-8 col-ms-12 check-cart-item ">
-                  <div className="image">
-                    <img
-                      src={item.image}
-                      alt={item.name}
-                      width="100px"
-                      height={100}
-                    />
-                    <div className="quntity">{item && item.quantity}</div>
-                  </div>
-
-                  <div className="check-cart-title">
-                    <p>
-                      <strong>{item && item.name}</strong>
-                    </p>
-                    <p>
-                      Phiên Bản : <strong>{item && item.size}</strong>/
-                    </p>
-                    <p>
-                      Màu : <strong>{item && item.color}</strong>
-                    </p>
-                    <p>
-                      thương hiêu : <strong>{item && item.trademark}</strong>
-                    </p>
-                  </div>
-                </div>
-                <div className="col-md-4 col-ms-12 cart_name ">
-                  {item && item.price * item.quantity}
-                  <strong className="VND"> VNĐ</strong>
-                </div>
-              </div>
-            ))}
-            <Radio.Group onChange={handleCheckInput} value={cod}>
-              <Space direction="vertical">
-                <Radio value={20000}>Vận chuyển chậm COD: 20000 VND</Radio>
-                <Radio value={30000}>Vận chuyển nhanh COD: 30000 VND</Radio>
-              </Space>
-            </Radio.Group>
-            <div className="all-money">
-              <div className="tam-tinh">Tạm Tính :</div>
-              <div className="temp-number">
-                {sumPrice + cod} <strong className="VND"> VNĐ</strong>{" "}
-              </div>
-            </div>
-            <div className="all-money ">
-              <div className="tam-tong">Tổng Tiền :</div>
-              <div className="all-price">
-                {sumPrice + cod} <strong className="VND"> VNĐ</strong>{" "}
-              </div>
-            </div>
           </div>
         </div>
       </div>

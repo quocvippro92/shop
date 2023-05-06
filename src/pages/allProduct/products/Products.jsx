@@ -127,7 +127,7 @@ const Products = () => {
             <div className="row products-right ">
               {products?.map((product, index) => (
                 <>
-                  <div className="col-md-4 col-ms-12 products-right_item">
+                  <div className="col-md-6 col-lg-4 col-ms-12 products-right_item">
                     <NavLink to={`/product/${product.id}`}>
                       <img
                         src={product.image}
@@ -137,7 +137,8 @@ const Products = () => {
                       />
                       <h5>{product.name.substring(0, 20)}...</h5>
                       <h4>
-                        {product.price} <strong className="VND">VNĐ</strong>
+                        {new Intl.NumberFormat().format(product.price)}{" "}
+                        <strong className="VND">VNĐ</strong>
                       </h4>
                     </NavLink>
                   </div>

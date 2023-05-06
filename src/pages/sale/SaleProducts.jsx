@@ -23,7 +23,6 @@ const SaleProducts = () => {
   const products = useSelector(
     (state) => state.saleProductReducer.saleProducts
   );
-
   const [valueSearch, setValueSearch] = useState("");
   const dispatch = useDispatch();
   const navigate = useNavigate();
